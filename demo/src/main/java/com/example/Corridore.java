@@ -1,6 +1,7 @@
 package com.example;
 import java.util.Random;
-public class Corridore {
+
+public class Corridore extends Thread{
     private String nome;
 
     public Corridore(String nome) {
@@ -12,14 +13,14 @@ public class Corridore {
             System.out.println("Il corridore A ha fatto" + i);
             Random rand = new Random();
             int randomN = rand.nextInt(600);
-            randomN += 200; 
-            try{
-            Thread.sleep(randomN);
-            }
-            catch(InterruptedException e){
+            randomN += 200;
+            try {
+                Thread.sleep(randomN);
+            } catch (InterruptedException e) {
                 System.out.println("Messaggio di errore" + e.getMessage());
                 Thread.currentThread().interrupt(); //funzione che serve per resettare lo stato del thread
             }
         }
         System.out.println("Arrivato al traguardo!!");
+    }
 }
