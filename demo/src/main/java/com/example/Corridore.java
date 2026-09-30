@@ -10,7 +10,7 @@ public class Corridore extends Thread{
 
     public void run() {
         Random rand = new Random();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println(this.nome + "Il corridore A ha fatto" + i);
             int randomN = rand.nextInt(600) + 200 ;
             
