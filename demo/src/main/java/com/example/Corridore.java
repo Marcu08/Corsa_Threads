@@ -9,16 +9,17 @@ public class Corridore extends Thread{
     }
 
     public void run() {
+        Random rand = new Random();
         for (int i = 0; i < 5; i++) {
-            System.out.println("Il corridore A ha fatto" + i);
-            Random rand = new Random();
-            int randomN = rand.nextInt(600);
-            randomN += 200;
+            System.out.println(this.nome + "Il corridore A ha fatto" + i);
+            int randomN = rand.nextInt(600) + 200 ;
+            
             try {
                 Thread.sleep(randomN);
             } catch (InterruptedException e) {
                 System.out.println("Messaggio di errore" + e.getMessage());
                 Thread.currentThread().interrupt(); //funzione che serve per resettare lo stato del thread
+                return; 
             }
         }
         System.out.println("Arrivato al traguardo!!");
